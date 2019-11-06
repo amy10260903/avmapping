@@ -28,7 +28,7 @@ cameraTrigger.onclick = function() {
     dataURL = cameraOutput.src;
     $.ajax({
         type: "POST",
-        url: "/test",
+        url: "http://140.114.78.91:8802/cd",
         data: { 
             imgBase64: dataURL
         },
