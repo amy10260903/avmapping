@@ -1,28 +1,897 @@
-<html lang=”en”>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Name of your awesome camera app -->
+    <meta name="Description" content="A.V. Mapping is a service to automatically match musics from hundreds of musicians to your movie.">
+    <meta name="keywords" content="AV Mapping, Licensed Music, Video Music, Music">
+
     <title>A.V. Mapping</title>
-    <!-- Link to your main style sheet-->
-    <link rel="stylesheet" href="assets/style.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link rel="shortcut icon" href="assets/images/favicons/av-icon.png" type="image/x-icon" />
+    <!--
+    <link rel="shortcut icon" href="assets/images/favicons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="assets/images/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="assets/images/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#000000">
+    -->
+
+
+    <!-- css -->
+    <link rel="stylesheet" href="assets/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/lib/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/lib/ionicons/css/ionicons.css">
+    <link rel="stylesheet" href="assets/lib/owlcarousel/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="assets/lib/owlcarousel/owl-carousel/owl.theme.css">
+    <link rel="stylesheet" href="assets/lib/FlexSlider/flexslider.css">
+    <link rel="stylesheet" href="assets/lib/magnific-popup/dist/magnific-popup.css"/>
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:100,300,400">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100,300,400">
+
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/ie_fix.css">
+
+    <script src="assets/lib/components-modernizr/modernizr.js"></script>
+    <script src="assets/lib/jquery/dist/jquery.js"></script>
+    <script src="assets/lib/bootstrap/dist/js/bootstrap.js"></script>
+
 </head>
-<body>
-    <!-- Camera -->
-    <main id="camera">
-        <!-- Camera sensor -->
-        <canvas id="camera--sensor"></canvas>
-        <!-- Camera view -->
-        <video id="camera--view" autoplay playsinline></video>
-        <!-- Camera output -->
-        <img src="//:0" alt="" id="camera--output">
-        <!-- Camera trigger -->
-        <button id="camera--trigger">Take a picture</button>
-    </main>
-    <!-- Reference to your JavaScript file -->
-    <script src="assets/app.js"></script>
+
+<body data-spy="scroll" data-target="#main-nav-collapse" data-offset="100">
+
+<div class="page-loader">
+    <div class="loader">Loading...</div>
+</div>
+<!-- Fixed Top Navigation -->
+<nav id="fixedTopNav" class="navbar navbar-fixed-top main-navigation" itemscope itemtype="https://schema.org/SiteNavigationElement" >
+    <div class="container" style="margin: 0 5vw; width: 90vw;">
+
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="ion-drag"></span>
+            </button>
+
+            <!-- Logo -->
+            <div class="navbar-brand" itemscope itemtype="https://schema.org/Organization">
+                <span itemprop="name" class="sr-only">A.V. Mapping</span>
+                <a itemprop="url" href="index.html">
+                    <img style="width: 6em; padding: 2px" src="assets/images/AV-logo-3.png" alt="">
+                </a>
+            </div>
+            <!-- /Logo -->
+
+        </div><!-- /.navbar-header -->
+
+        <!-- Navigation Links -->
+        <div class="collapse navbar-collapse" id="main-nav-collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+                <li><a href="#portfolio" itemprop="url" style="font-size: 1.2em;">
+                    <span itemprop="name">我們的產品</span>
+                </a></li>
+
+                <li><a href="#perform" itemprop="url" style="font-size: 1.2em;">
+                    <span itemprop="name">成果展示</span>
+                </a></li>
+
+                <li><a href="#testimonial" itemprop="url" style="font-size: 1.2em;">
+                    <span itemprop="name">服務案例</span>
+                </a></li>
+
+                <li><a href="#team" itemprop="url" style="font-size: 1.2em;">
+                    <span itemprop="name">Team member</span>
+                </a></li>
+
+                <li><a href="#contact" itemprop="url" style="font-size: 1.2em;">
+                    <span itemprop="name">聯絡我們</span>
+                </a></li>
+            </ul>
+        </div>
+        <!-- /Navigation Links -->
+
+    </div><!-- /.container -->
+</nav>
+<!-- /Fixed Top Navigation -->
+
+<!-- Header -->
+<header id="header" class="header-wrapper home-parallax home-fade dark-bg bg-home">
+    <div class="color-white-overlay"></div>
+    <div class="header-wrapper-inner">
+        <div class="container">
+
+            <div class="intro" style="text-align: left; padding-top: 15em; line-height: 7em;">
+                <span style="font-size: 7.5em;color: #ffffff; font-weight: 500">影像配樂<br>智能平台</span>
+                <br>
+                <p style="font-size: 2.5em;color: #ffffff; font-weight: 300">讓專業配樂A.I為您的影像<br>省下95%的聲音工程時間</p>
+            </div><!-- /.intro -->
+
+        </div><!-- /.container -->
+
+        <div class="arrow-down">
+            <a href="#about-us" class="onPageNav">
+                <i class="ion-ios-arrow-down"></i>
+            </a>
+        </div><!-- /.arrow-down -->
+
+    </div><!-- /.header-wrapper-inner -->
+</header>
+<!-- /Header -->
+<!-- About Us -->
+<section id="about-us" class="section about-us">
+    <div class="container">
+
+        <!---->
+        <header class="section-heading" style="line-height: 3em">
+            <span style="font-size: 3em">A.I.解決問題</span><br>
+            <span style="font-size: 1em">過去做不到的,我們都做到了</span>
+        </header><!-- section-heading -->
+        <!---->
+
+        <div class="section-content">
+            <div class="row">
+                <div class="col-sm-4">
+
+                    <!-- about-left -->
+                    <div class="about-content">
+                        <span style="font-size: 3em">合約</span>
+                        <h2 style="line-height: 2em">提供重製與公播</h2>
+                    </div>
+
+                </div><!-- col-sm-4 -->
+
+                <div class="col-sm-4">
+
+                    <!-- about-center -->
+                    <figure class="about-content center">
+                        <img class="img-responsive center-block" src="assets/images/intro/mus.png" alt="">
+                    </figure>
+
+                </div><!-- col-sm-4 -->
+
+                <div class="col-sm-4">
+
+                    <!-- about-right -->
+                    <div class="about-content">
+                        <span style="font-size: 3em">聲音工程</span><br>
+                        <h2 style="line-height: 2.5em; font-weight: 500">2週 ➜ 30分鐘</h2>
+                        <h3 style="font-weight: 300">AI選曲省下93%時間</h3>
+                        <h3 style="font-weight: 300">AI編輯省下98%時間</h3>
+                    </div>
+
+                </div><!-- col-sm-4 -->
+            </div><!-- row -->
+        </div><!-- section-content -->
+    </div><!-- container -->
+</section>
+<!-- /About Us -->
+<!-- What We Can Do -->
+<section id="funfacts" class="section dark-bg funfacts">
+    <div class="container" style="margin:0px 5vw; width: 90vw;">
+        <div class="section-content">
+            <div class="row" style="margin: 0px">
+                <div class="col-sm-9">
+                    <header class="section-heading" style="line-height: 3em;margin-bottom: 50px; text-align: left">
+                        <span style="font-size: 3em">我們能夠做些什麼</span><br>
+                        <span style="font-size: 1em">只需要簡單的步驟</span>
+                    </header>
+                </div>
+
+                <div class="col-sm-3">
+                    <div style="color: #ffffff;">
+                        <p style="font-size:1.8em;font-weight: 300"><span style="font-weight: 400">步驟一：</span>上傳影片</p><br>
+                        <p style="font-size:1.8em;font-weight: 300"><span style="font-weight: 400">步驟二：</span>即可得到音樂、<br>聲音、音效（3軌）</p>
+                    </div>
+                </div>
+            </div><!-- row -->
+        </div><!-- section-content -->
+    </div><!-- container -->
+</section>
+<!-- /What We Can Do -->
+<!-- Portfolio -->
+<section id="portfolio" class="section portfolio" style="margin-bottom: 50px">
+    <div class="container">
+        <!---->
+        <header class="section-heading" style="line-height: 3em; margin-bottom: 50px">
+            <span style="font-size: 3em">我們的產品</span><br>
+            <span style="font-size: 1em">成功出色的項目才能夠使客戶滿意</span>
+        </header>
+        <!---->
+    </div>
+        <div class="portfolio-grid three-col" style="margin: 0px 20px;">
+ 
+            <ul id="da-thumbs" class="da-thumbs isotope">
+            <li data-category="design" class="design" style="padding: 10px 10px;">
+                <a href="#portfolio">
+                    <img src="assets/images/product/01.png" alt="" style="filter:brightness(.15)" />
+                    <p class="centered" style="font-size: 1.5em;color: #ffffff;z-index: 1">聲音後製處理</p>
+                    <div class="portfolio-detail-overlay" style="background: url(./assets/images/product/01.png) no-repeat center center;">
+                    </div>
+                </a>
+            </li>
+
+            <li data-category="design" class="design" style="padding: 10px 10px;">
+                <a href="#portfolio">
+                    <img src="assets/images/product/02.png" alt="" style="filter:brightness(.15)" />
+                    <p class="centered" style="font-size: 1.5em;color: #ffffff;z-index: 1">動態影像配樂</p>
+                    <div class="portfolio-detail-overlay" style="background: url(./assets/images/product/02.png) no-repeat center center;">
+                    </div>
+                </a>
+            </li>
+
+            <li data-category="design" class="design" style="padding: 10px 10px;">
+                <a href="#portfolio">
+                    <img src="assets/images/product/03.png" alt="" style="filter:brightness(.15)" />
+                    <p class="centered" style="font-size: 1.5em;color: #ffffff;z-index: 1">相片/插畫配樂</p>
+                    <div class="portfolio-detail-overlay" style="background: url(./assets/images/product/03.png) no-repeat center center;">
+                    </div>
+                </a>
+            </li>
+
+            <li data-category="design" class="design" style="padding: 10px 10px;">
+                <a href="#portfolio">
+                    <img src="assets/images/product/04.png" alt="" style="filter:brightness(.15)" />
+                    <p class="centered" style="font-size: 1.5em;color: #ffffff;z-index: 1">影片逐格分析</p>
+                    <div class="portfolio-detail-overlay" style="background: url(./assets/images/product/04.png) no-repeat center center;">
+                    </div>
+                </a>
+            </li>
+
+            <li data-category="design" class="design" style="padding: 10px 10px;">
+                <a href="#portfolio">
+                    <img src="assets/images/product/05.png" alt="" style="filter:brightness(.15)" />
+                    <p class="centered" style="font-size: 1.5em;color: #ffffff;z-index: 1">自動逐字稿與字幕產出</p>
+                    <div class="portfolio-detail-overlay" style="background: url(./assets/images/product/05.png) no-repeat center center;">
+                    </div>
+                </a>
+            </li>
+
+            <li data-category="design" class="design" style="padding: 10px 10px;">
+                <a href="https://moviestar.avmapping.co">
+                    <img src="assets/images/product/06.png" alt="" style="filter:brightness(.15)" />
+                    <p class="centered" style="font-size: 1.5em;color: #ffffff;z-index: 1">電影明星臉</p>
+                    <div class="portfolio-detail-overlay" style="background: url(./assets/images/product/06.png) no-repeat center center;">
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div><!--/portfolio-grid-->
+
+
+</section>
+<!-- /Portfolio -->
+<!-- Perform -->
+<section id="perform" class="section dark-bg expertise progressbars">
+    <div class="color-overlay"></div>
+    <div class="container">
+        <header class="section-heading" style="line-height: 3em">
+            <span style="font-size: 3em">成果展示</span><br>
+            <span style="font-size: 1em">看到我們的最終結果感到驚訝</span>
+        </header>
+
+        <div class="section-content">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="progress-box">
+                        <header class="progress-heading">
+                            <div class="row">
+                                <div class="col-xs-6">透過 A.I 選曲能省下的時間</div>
+                                <div class="col-xs-6 text-right">93%</div>
+                            </div>
+                        </header>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="93" aria-valuemin="0"
+                                 aria-valuemax="100">
+                                <span class="sr-only">60% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="progress-box">
+                        <header class="progress-heading">
+                            <div class="row">
+                                <div class="col-xs-6">透過A.I自動化對點省下的時間</div>
+                                <div class="col-xs-6 text-right">98%</div>
+                            </div>
+                        </header>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="98" aria-valuemin="0"
+                                 aria-valuemax="100">
+                                <span class="sr-only">60% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="progress-box">
+                        <header class="progress-heading">
+                            <div class="row">
+                                <div class="col-xs-6">比過去的媒合效率高出</div>
+                                <div class="col-xs-6 text-right">1960倍</div>
+                            </div>
+                        </header>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                                 aria-valuemax="100">
+                                <span class="sr-only">60% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="progress-box">
+                        <header class="progress-heading">
+                            <div class="row">
+                                <div class="col-xs-6">平均每次省下的工作成本</div>
+                                <div class="col-xs-6 text-right">$10K(NTD)</div>
+                            </div>
+                        </header>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0"
+                                 aria-valuemax="100">
+                                <span class="sr-only">60% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- col-md-6 -->
+            </div><!-- row -->
+        </div><!-- .section-content -->
+    </div><!-- .container -->
+</section>
+<!-- /Perform -->
+<!-- Testimonial -->
+<section id="testimonial" class="section overlay-1 testimonial bg-image dark-bg">
+    <div class="color-blue-overlay"></div>
+    <div class="container">
+        <header class="section-heading" style="line-height: 3em;margin-bottom: 50px">
+            <span style="font-size: 3em">服務案例</span><br>
+            <span style="font-size: 2em">僅開放測試兩日統計</span>
+        </header>
+
+        <div class="section-content">
+            <div style="text-align: center; margin-bottom: 100px">
+                <p style="font-size: 3em">效率高達1960倍</p>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <p style="font-weight: 400; font-size: 1.9em; line-height: 1.5em">
+                    <span style="font-weight: 300;">2天將近300部影像配樂（總長約2.5小時）</span><br><br>
+                    =相當於150個專業選取人2天工作量<br>
+                    =或60位影像配樂家2週之成果</p>
+                </div><!--/col-->
+                <div class="col-md-5">
+                    <p style="font-weight: 400; font-size: 1.9em; line-height: 1.5em">15分鐘內完成「2萬秒聲音處理工程」<br>
+                    相當於人工四個工作天之工作量。</p>
+                </div>
+            </div><!-- row -->
+        </div><!-- section-content -->
+    </div><!-- container -->
+</section>
+<!-- Testimonial -->
+<!-- Service -->
+<section id="services" class="section services">
+    <div class="container">
+
+        <!---->
+        <header class="section-heading" style="line-height: 3em; margin-bottom: 20px;">
+            <span style="font-size: 3em">服務項目</span><br>
+            <span style="font-size: 1em">我們計劃，設計，製造和提高銷售的系統服務</span>
+        </header>
+        <!---->
+
+        <div class="section-content">
+            <div class="row">
+                <div class="col-sm-4">
+                    <!-- service -->
+                    <div class="service">
+                        <div class="service-icon text-center" style="height: 6em;">
+                            <img style="width: 5em" src="assets/images/icon/01.png">
+                        </div>
+                        <div class="about-service">
+                            <h4 class="text-center" style="letter-spacing: .5em">獨家配樂A.I.</h4>
+                            <p class="text-center">已申請專利的獨家配樂AI演算法,得以切出影<br>像分鏡、劇情、情緒、動作、文字;分析音樂<br>的風格、情緒、速度、曲風。</p>
+                        </div>
+                    </div>
+                </div><!-- col-sm-4 -->
+                <div class="col-sm-4">
+                    <!-- service -->
+                    <div class="service">
+                        <div class="service-icon text-center" style="height: 6em;">
+                            <img style="width: 5em" src="assets/images/icon/02.png">
+                        </div>
+                        <div class="about-service">
+                            <h4 class="text-center" style="letter-spacing: .5em">音樂人平等競爭</h4>
+                            <p class="text-center">音樂人自行為作品定價，由客觀的演算法直接<br>找到合適之影像買家、自動提供聲音與配樂服<br>務,讓用心創作的影音都能有更好的選擇。</p>
+                        </div>
+                    </div>
+                </div><!-- col-sm-4 -->
+                <div class="col-sm-4">
+                    <!-- service -->
+                    <div class="service">
+                        <div class="service-icon text-center" style="height: 6em;">
+                            <img style="width: 5em" src="assets/images/icon/03.png">
+                        </div>
+                        <div class="about-service">
+                            <h4 class="text-center" style="letter-spacing: .5em">全年無休</h4>
+                            <p class="text-center">線上A.I. 能隨時隨地為您處理好影片聲音。</p>
+                        </div>
+                    </div>
+                </div><!-- col-sm-4 -->
+            </div><!-- row -->
+
+            <div class="row secondrow">
+                <a href="https://www.facebook.com/av.mapping/" target="_blank" style="color: #595959">
+                <div class="col-sm-4">
+                    <!-- service -->
+                    <div class="service">
+                        <div class="service-icon text-center" style="height: 6em;">
+                            <img style="width: 5em" src="assets/images/icon/04.png">
+                        </div>
+                        <div class="about-service">
+                            <h4 class="text-center" style="letter-spacing: .5em">社群影響力</h4>
+                            <p class="text-center">有效提高影音創作者曝光率,提升聲量、知名<br>度、創造收益。歡迎加入我們社群<br>
+                            <span style="color: #3B5998;"><i class="fa fa-facebook-square"></i> Musicians</span> 獲得更多交流機會。</p>
+                        </div>
+                    </div>
+                </div><!-- col-sm-4 -->
+                </a>
+                <div class="col-sm-4">
+                    <!-- service -->
+                    <div class="service">
+                        <div class="service-icon text-center" style="height: 6em;">
+                            <img style="width: 5em" src="assets/images/icon/05.png">
+                        </div>
+                        <div class="about-service">
+                            <h4 class="text-center" style="letter-spacing: .5em">音樂資料庫</h4>
+                            <p class="text-center">現有2萬首60類型的音樂,包含流行、<br>EDM、後搖、愛爾蘭樂等等,且持續擴增中。</p>
+                        </div>
+                    </div>
+                </div><!-- col-sm-4 -->
+                <div class="col-sm-4">
+                    <!-- service -->
+                    <div class="service">
+                        <div class="service-icon text-center" style="height: 6em;">
+                            <img style="width: 5em" src="assets/images/icon/06.png">
+                        </div>
+                        <div class="about-service">
+                            <h4 class="text-center" style="letter-spacing: .5em">影音世代來臨</h4>
+                            <p class="text-center">眼球時代下的影像製作數量為11年前的100<br>倍,讓我們來提供更快速又完整的聲音服務。</p>
+                        </div>
+                    </div>
+                </div><!-- col-sm-4 -->
+            </div><!-- row -->
+        </div><!-- section-content -->
+    </div><!-- container -->
+</section>
+<!-- Service -->
+<!-- Clients -->
+<div id="clients" class="section clients overlay-1">
+    <div class="container">
+        <div class="section-content">
+            <div id="client-carousel" class="owl-carousel">
+
+                <div class="client-image item" style="overflow: hidden;">
+                    <img class="img-responsive center-block" src="assets/images/clients/01.png" alt="">
+                </div>
+
+                <div class="client-image item" style="overflow: hidden;">
+                    <img class="img-responsive center-block" src="assets/images/clients/02.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/03.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/04.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/05.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/06.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/07.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/08.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/09.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/10.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/11.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/12.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/13.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/14.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/15.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/16.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/17.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/18.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/19.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/20.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/21.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/22.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/23.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/24.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/25.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/26.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/27.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/28.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/29.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/30.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/31.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/32.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/33.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/34.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/35.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/36.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/37.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/38.png" alt="">
+                </div>
+
+                <div class="client-image item">
+                    <img class="img-responsive center-block" src="assets/images/clients/39.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Clients -->
+<!-- Team -->
+<section id="team" class="section team">
+    <div class="container">
+        <header class="section-heading" style="line-height: 3em; margin-bottom: 20px">
+            <span style="font-size: 3em; text-transform: none;">Team member</span><br>
+            <span style="font-size: 1em">關於我們</span>
+        </header>
+
+        <div class="section-content">
+            <div class="row" style="margin:0px 75px;">
+                <div class="col-sm-3" style="padding: 0px;">
+                    <!-- team-member's-bio -->
+                    <div class="team-bio" style="padding: 0px;">
+                        <figure>
+                            <img src="assets/images/team/01.png" class="img-responsive center-block" alt="">
+                        </figure>
+                        <div class="team-description">
+                            <div class="member-name">Frinny Lee</div>
+                            <div class="designation" style="text-transform: none;">CEO &amp; Film Composer for 5 yrs+</div>
+                        </div>
+                    </div><!--/team bio-->
+
+                </div><!-- col-sm-4 -->
+
+                <div class="col-sm-3" style="padding: 0px;">
+
+                    <!-- team-member's-bio -->
+                    <div class="team-bio" style="padding: 0px;">
+                        <figure>
+                            <img src="assets/images/team/02.png" class="img-responsive center-block" alt="">
+                        </figure>
+                        <div class="team-description">
+                            <div class="member-name">Cosine Chen</div>
+                            <div class="designation" style="text-transform: none;">CTO &amp; A.I. Developer for 3 yrs+</div>
+                        </div>
+                    </div><!--/team bio-->
+
+                </div><!-- col-sm-4 -->
+
+                <div class="col-sm-3" style="padding: 0px;">
+
+                    <!-- team-member's-bio -->
+                    <div class="team-bio" style="padding: 0px;">
+                        <figure>
+                            <img src="assets/images/team/03.png" class="img-responsive center-block" alt="">
+                        </figure>
+                        <div class="team-description">
+                            <div class="member-name">Charles Chen</div>
+                            <div class="designation" style="text-transform: none;">Lead of Engineering,<br>Senior A.I. Developer for 3 yrs+</div>
+                        </div>
+                    </div><!--/team bio-->
+
+                </div><!-- col-sm-4 -->
+                <div class="col-sm-3" style="padding: 0px;">
+
+                    <!-- team-member's-bio -->
+                    <div class="team-bio" style="padding: 0px;">
+                        <figure>
+                            <img src="assets/images/team/04.png" class="img-responsive center-block" alt="">
+                        </figure>
+                        <div class="team-description">
+                            <div class="member-name">Hack Chu</div>
+                            <div class="designation" style="text-transform: none;">M.I.R. Developer for 5 yrs+</div>
+                        </div>
+                    </div><!--/team bio-->
+                </div><!-- col-sm-4 -->
+            </div>
+            <div class="row" style="margin:10px 75px;">
+                <div class="col-sm-3" style="padding: 0px;">
+
+                    <!-- team-member's-bio -->
+                    <div class="team-bio" style="padding: 0px;">
+                        <figure>
+                            <img src="assets/images/team/05.png" class="img-responsive center-block" alt="">
+                        </figure>
+                        <div class="team-description">
+                            <div class="member-name">River Tsai</div>
+                            <div class="designation" style="text-transform: none;">UI/UX Designer for 3 yrs+</div>
+                        </div>
+                    </div><!--/team bio-->
+
+                </div><!-- col-sm-4 -->
+                <div class="col-sm-3" style="padding: 0px;">
+
+                    <!-- team-member's-bio -->
+                    <div class="team-bio" style="padding: 0px;">
+                        <figure>
+                            <img src="assets/images/team/06.png" class="img-responsive center-block" alt="">
+                        </figure>
+                        <div class="team-description">
+                            <div class="member-name">Stolka Wu</div>
+                            <div class="designation" style="text-transform: none;">Marketing &amp; Film Director for 5 yrs+</div>
+                        </div>
+                    </div><!--/team bio-->
+
+                </div><!-- col-sm-4 -->
+                <div class="col-sm-3" style="padding: 0px;">
+
+                    <!-- team-member's-bio -->
+                    <div class="team-bio" style="padding: 0px;">
+                        <figure>
+                            <img src="assets/images/team/07.png" class="img-responsive center-block" alt="">
+                        </figure>
+                        <div class="team-description">
+                            <div class="member-name">MJ Yang</div>
+                            <div class="designation" style="text-transform: none;">Marketing &amp; Film Producer for 3 yrs+</div>
+                        </div>
+                    </div><!--/team bio-->
+
+                </div><!-- col-sm-4 -->
+                <div class="col-sm-3" style="padding: 0px;">
+
+                    <!-- team-member's-bio -->
+                    <div class="team-bio" style="padding: 0px;">
+                        <figure>
+                            <img src="assets/images/team/08.png" class="img-responsive center-block" alt="">
+                        </figure>
+                        <div class="team-description">
+                            <div class="member-name">Zack Yang</div>
+                            <div class="designation" style="text-transform: none;">Marketing, &amp; Film Producer for 5 yrs+</div>
+                        </div>
+                    </div><!--/team bio-->
+
+                </div><!-- col-sm-4 -->
+            </div><!-- row -->
+        </div><!-- section-content -->
+    </div><!-- container -->
+</section>
+<!-- Team -->
+<!-- Contact-us -->
+<section id="contact" class="section contact">
+    <div class="container">
+        <!---->
+        <header class="section-heading" style="line-height: 3em;margin-bottom: 50px">
+            <span style="font-size: 3em">聯絡我們</span><br>
+            <span style="font-size: 1em">歡迎能有更多交流</span>
+        </header>
+        <!---->
+
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-6 col-sm-7" style="padding-right: 20px">
+                    <h4 style="font-weight: 400">聯絡我們</h4>
+                    <div class="row contact-info-wrap" style="margin-bottom: 30px">
+                        <div class="col-sm-5">
+                            <div>
+                                <address class="contact-info" style="font-size: 1em">
+                                    <i class="fa fa-location-arrow"></i>
+                                    <span>&ensp;A.V. Mapping Co., LTD</span><br>
+                                    <span>&ensp; &ensp; 台北市中山區松江路</span><br>
+                                    <span>&ensp; &ensp; 469巷41號10樓</span>
+                                </address>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div>
+                                <div class="contact-info" style="font-size: 1em">
+                                    <i class="fa fa-phone"></i><span>&ensp; (02)2501-7937</span><br><br>
+                                    <a href="mailto: AV.iMapping@gmail.com" style="color:#000000"><i class="fa fa-envelope"></i><span>&ensp; AV.iMapping@gmail.com</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="google-map">
+                        <div>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.0662088779595!2d121.53296131461892!3d25.06574498395745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a95791e3d6f9%3A0xf68981ef58177014!2zMTA0OTHlj7DljJfluILkuK3lsbHljYDmnb7msZ_ot680Njnlt7c0MeiZnzEw!5e0!3m2!1szh-TW!2stw!4v1572296116845!5m2!1szh-TW!2stw" height="220" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-5">
+                    <h4 style="font-weight: 400">隨時留言給我們</h4>
+                    <form action="php/contact-form.php" class="contact-form" id="contactForm" method="post" name="contactform">
+
+                        <div class="form-group">
+                            <input class="form-control" id="name" name="name" placeholder="您的名稱" type="text" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" id="email" name="email" placeholder="Email Address" type="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" name="massage" placeholder="讓我們為您服務" rows="5" required></textarea>
+                        </div>
+
+                        <div id="contactFormResponse"></div>
+
+                        <button id="cfsubmit" type="submit" class="btn btn-dark btn-block contact-submit">讓我們為您服務</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact-us -->
+<!-- footer -->
+<footer id="footer" class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-4">
+                <p class="copyright text-xs-center">&copy; 2019 A.V. Mapping</p>
+            </div>
+
+            <div class="col-md-5 col-sm-4">
+                <!--
+                <ul class="footer-social-block">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+                -->
+            </div>
+
+            <div class="col-md-4 col-sm-4">
+                <div class="footer-menu text-xs-center">
+                    <a href="#">Privacy Policy</a> | <a href="">Terms &amp; Conditions</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- #footer -->
+
+<a id="totop" href="#totop"><i class="fa fa-angle-double-up"></i></a>
+<!-- js -->
+<script src="assets/lib/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/lib/isotope/dist/isotope.pkgd.min.js"></script>
+<script src="assets/lib/owlcarousel/owl-carousel/owl.carousel.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script src="assets/lib/waypoints/lib/jquery.waypoints.min.js"></script>
+<script src="assets/lib/waypoints/lib/shortcuts/inview.min.js"></script>
+
+<script src="assets/lib/FlexSlider/jquery.flexslider.js"></script>
+<script src="assets/lib/simple-text-rotator/jquery.simple-text-rotator.js"></script>
+<script src="assets/lib/jquery.mb.YTPlayer/dist/jquery.mb.YTPlayer.min.js"></script>
+<script src="assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
+
+<script src="assets/js/main.js"></script>
+
+<!--[if lt IE 10]>
+<script>
+    $('input, textarea').placeholder();
+</script>
+<![endif]-->
+
 </body>
 </html>
